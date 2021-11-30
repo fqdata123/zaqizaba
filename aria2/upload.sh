@@ -115,7 +115,7 @@ DEFINITION_PATH() {
     PATHWITHMONTH=$(TZ=Asia/Shanghai date "+%m")
     PATHWITHDAY=$(TZ=Asia/Shanghai date "+%d")
     if [[ -f "${TASK_PATH}" ]]; then
-        LOCAL_PATH=$(CHANGE_NAME ${TASK_PATH} ${NAMEWITHTIME})
+        LOCAL_PATH=$(CHANGE_NAME "${TASK_PATH}" "${NAMEWITHTIME}")
         REMOTE_PATH="${DRIVE_DIR}/${PATHWITHYEAR}/${PATHWITHMONTH}/${PATHWITHDAY}${DEST_PATH_SUFFIX%/*}"
     else
         KEEPPATH=$(pwd)
