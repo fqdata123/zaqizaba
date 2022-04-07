@@ -20,4 +20,6 @@ fi
 
 MTU=$((MTU+28-80))
 
-[[ -e /etc/wireguard/wgcf.conf ]] && sed -i "s/MTU.*/MTU = $MTU/g" /etc/wireguard/wgcf.conf && green " \n${T[${L}81]}\n "
+[[ -e /etc/wireguard/wgcf.conf ]] && sed -i "s/MTU.*/MTU = $MTU/g" /etc/wireguard/wgcf.conf
+
+echo $MTU
