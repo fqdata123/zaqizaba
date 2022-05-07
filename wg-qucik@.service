@@ -13,10 +13,10 @@ Documentation=https://git.zx2c4.com/wireguard-tools/about/src/man/wg.8
 [Service]
 Type=oneshot
 RemainAfterExit=yes
-ExecStart=/bin/bash -c 'WG_QUICK_USERSPACE_IMPLEMENTATION=boringtun WG_SUDO=1 /usr/bin/wg-quick up %i'
+ExecStart=/usr/bin/wg-quick up %i
 ExecStop=/usr/bin/wg-quick down %i
 ExecReload=/bin/bash -c 'exec /usr/bin/wg syncconf %i <(exec /usr/bin/wg-quick strip %i)'
-Environment=WG_ENDPOINT_RESOLUTION_RETRIES=infinity
+Environment=WG_ENDPOINT_RESOLUTION_RETRIES=infinity WG_QUICK_USERSPACE_IMPLEMENTATION=boringtun WG_SUDO=1
 
 [Install]
 WantedBy=multi-user.target
